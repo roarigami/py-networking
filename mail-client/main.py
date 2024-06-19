@@ -22,3 +22,16 @@ with open('message.txt', 'r') as f:
     message = f.read()
 
 msg.attach(MIMEText(message, 'plain'))
+
+msgImage = 'img/network.jpg'
+attachment = open(msgImage, 'rb')
+
+p = MIMEBase('application', 'octet-stream')
+p.set_payload(attachment.read())
+
+encoders.encode_base64(p)
+p.add_header('Content-Disposition', f'attachment; msgImage={msgImage}')
+msg.attach(p)
+
+text = msg.as_string()
+server.sendmail('example@gmail.com', 'test@gmail.com', text)
