@@ -31,3 +31,10 @@ class MyWebBrowser(QMainWindow):
         self.horizontal.addWidget(self.go_btn)
         self.horizontal.addWidget(self.back_btn)
         self.horizontal.addWidget(self.forward_btn)
+
+        self.browser = QWebEngineView()
+
+        self.layout.addLayout(self.horizontal)
+        self.layout.addWidget(self.browser)
+
+        self.browser.setUrl(QUrl("https://google.ca"))
