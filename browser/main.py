@@ -4,10 +4,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
 
 
-class MyWebBrowser(QMainWindow):
+class OdysseyWebBrowser(QMainWindow):
 
     def __init__(self, *args, **kwargs):
-        super(MyWebBrowser, self).__init__(*args, **kwargs)
+        super(OdysseyWebBrowser, self).__init__(*args, **kwargs)
 
         self.window = QWidget()
         self.window.setWindowTitle("Odyssey Web Browser")
@@ -38,3 +38,10 @@ class MyWebBrowser(QMainWindow):
         self.layout.addWidget(self.browser)
 
         self.browser.setUrl(QUrl("https://google.ca"))
+
+        self.window.setLayout(self.layout)
+        self.window.show()
+
+app = QApplication([])
+window = OdysseyWebBrowser()
+app.exec_()
