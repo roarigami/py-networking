@@ -1,3 +1,3 @@
 # py_networking
-Networking systems and tools.
+Networking solutions, applications and tools.
 Language: Python
