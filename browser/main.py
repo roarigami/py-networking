@@ -34,6 +34,10 @@ class OdysseyWebBrowser(QMainWindow):
 
         self.browser = QWebEngineView()
 
+        self.go_btn.clicked.connect(lambda: self.navigate(self.url_bar.toPlainText()))
+        self.back_btn.clicked.connect(self.browser.back)
+        self.forward_btn.clicked.connect(self.browser.forward)
+
         self.layout.addLayout(self.horizontal)
         self.layout.addWidget(self.browser)
 
