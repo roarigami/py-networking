@@ -42,6 +42,13 @@ class OdysseyWebBrowser(QMainWindow):
         self.window.setLayout(self.layout)
         self.window.show()
 
+    def navigate(self, url):
+        if not url.startswith("http"):
+            url = "http://" + url
+            self.url_bar.setText(url)
+        self.browser.setUrl(QUrl(url))
+
+
 app = QApplication([])
 window = OdysseyWebBrowser()
 app.exec_()
